@@ -47,6 +47,7 @@ public class GameTest {
 
   @Test 
   public void canGetPlayerName() {
+    assertEquals(0, deck.numberOfCards());
     assertEquals("Nina", player.getName());
   }
 
@@ -77,6 +78,16 @@ public class GameTest {
     players.add(player1);
     players.add(player2);
     Game highestCard = new HighestCard(players);
+  }
+
+  @Test 
+  public void playerWinsOnePlayerGame() {
+    ArrayList<Player> players = new ArrayList<Player>();
+    players.add(player);
+    HighestCard highestCard = new HighestCard(players);
+    ArrayList<Player> winnerArray = highestCard.gameLoop();
+    Player winner = winnerArray.remove(0);
+    assertEquals(player, winner);
   }
 
 }

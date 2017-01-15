@@ -1,5 +1,6 @@
 package game;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Deck implements CardHabitat {
 
@@ -8,6 +9,10 @@ public class Deck implements CardHabitat {
 
   public void addCard(Card card) {
     cards.add(card);
+  }
+
+  public void shuffle() {
+    Collections.shuffle(cards);
   }
 
   public int numberOfCards() {

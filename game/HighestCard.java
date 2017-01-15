@@ -1,11 +1,11 @@
 package game;
-import java.util.ArrayList;
+import java.util.*;
 
 public class HighestCard extends Game {
 
   Deck deck = new Deck();
   ArrayList<Player> players;
-  ArrayList<Integer> scores = new ArrayList<Integer>();
+  HashMap<Value, Integer> scores = new HashMap<Value, Integer>();
 
   public HighestCard(ArrayList<Player> players) {
     this.players = players;    
@@ -19,23 +19,44 @@ public class HighestCard extends Game {
         deck.addCard(card);
       }
     }
+    deck.shuffle();
   }
 
-  public void makeScores() {
-    for (Integer i = 1; i < 14; i++) {
-      scores.add(i);
-    }
+  public void assignScores() {
+    scores.put(Value.ACE, 14);
+    scores.put(Value.TWO, 2);
+    scores.put(Value.THREE, 3);
+    scores.put(Value.FOUR, 4);
+    scores.put(Value.FIVE, 5);
+    scores.put(Value.SIX, 6);
+    scores.put(Value.SEVEN, 7);
+    scores.put(Value.EIGHT, 8);
+    scores.put(Value.NINE, 9);
+    scores.put(Value.TEN, 10);
+    scores.put(Value.JACK, 11);
+    scores.put(Value.QUEEN, 12);
+    scores.put(Value.KING, 13);
   }
 
-  public void gameLoop() {
+  public ArrayList<Player> gameLoop() {
     makeDeck();
-    makeScores();
+    assignScores();
+    Integer highestValue = 0;
+    ArrayList<Player> winners = new ArrayList<Player>();
     for (Player player : players) {
       deck.dealCardToPlayer(player);
+      Hand hand = player.getHand();
+      Card card = hand.getCards().remove(0);
+      Value value = card.getValue();
+      Integer valueInt = scores.get(value);
+      if (valueInt > highestValue) {
+        winners = new ArrayList<Player>();
+        winners.add(player);
+      } else if (valueInt == highestValue) {
+        winners.add(player);
+      }
     }
-    numberOfPlayers = players.size();
-    for (int i = 0; i < numberOfPlayers; i++) {
-      
-    }
+    return winners;
   }
+
 }
