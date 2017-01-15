@@ -18,4 +18,8 @@ public class Card {
     return this.suit;
   }
 
+  
+
+
+
 }

@@ -3,12 +3,14 @@ import java.util.ArrayList;
 
 public class Player {
 
-  String name;
-  Hand hand;
+  private String name;
+  private Hand hand;
+  public Integer score;
 
   public Player(String name) {
     this.name = name;
     this.hand = new Hand();
+    this.score = 0;
   }
 
   public String getName() {
@@ -17,5 +19,17 @@ public class Player {
 
   public Hand getHand() {
     return this.hand;
+  }
+
+  public Integer getPlayerScore() {
+    return this.score;
+  }
+
+  public void addToScore(Integer dScore) {
+    this.score += dScore;
+  }
+
+  public void setScore(int score) {
+    this.score = score;
   }
 }

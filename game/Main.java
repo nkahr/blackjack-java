@@ -9,5 +9,6 @@ public class Main {
     players.add(player1);
     players.add(player2);
     Game gameTest = new HighestCard(players);
+    System.out.println("hi");
   }
 }

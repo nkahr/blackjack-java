@@ -1,6 +1,5 @@
 package game;
-import java.util.ArrayList;
-import java.util.Collections;
+import java.util.*;
 
 public class Deck implements CardHabitat {
 
@@ -11,7 +10,7 @@ public class Deck implements CardHabitat {
     cards.add(card);
   }
 
-  public void shuffle() {
+  public void shuffleDeck() {
     Collections.shuffle(cards);
   }
 
@@ -21,7 +20,16 @@ public class Deck implements CardHabitat {
 
   public void dealCardToPlayer(Player player) {
     Card card = cards.remove(0);
-    player.hand.addCard(card);
+    player.getHand().addCard(card);
+  }
+
+  public void dealCardsToPlayers(ArrayList<Player> players, int numberOfCards) {
+    for (int i = 0; i < numberOfCards; i++) {
+      for (Player player : players) {
+        Card card = cards.remove(0);
+        player.getHand().addCard(card);
+      }
+    }
   }
 
   public Visibility getVisibility() {
