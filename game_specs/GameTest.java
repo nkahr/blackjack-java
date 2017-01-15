@@ -35,9 +35,9 @@ public class GameTest {
     players.add(player1);
     HighestCard game = new HighestCard(players);
     game.play();
-    // ArrayList<Player> winnerArray = game.getWinners();
-    // Player winner = winnerArray.get(0);
-    // assertEquals(player1, winner);
+    ArrayList<Player> winnerArray = game.getWinners();
+    Player winner = winnerArray.get(0);
+    assertEquals(player1, winner);
   }
 
   @Test
