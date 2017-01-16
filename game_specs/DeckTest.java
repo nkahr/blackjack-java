@@ -42,6 +42,15 @@ public class DeckTest {
   }
 
   @Test 
+  public void canDealCardToPlayer() {
+    deck = Game.make52Deck();
+    deck.dealCardToPlayer(player1);
+    CardHabitat hand = player1.getHand();
+    assertEquals(1, hand.numberOfCards());
+    assertEquals(51, deck.numberOfCards());
+  }
+
+  @Test 
   public void deal2CardsToPlayers() {
     ArrayList<Player> players = new ArrayList<Player>();
     players.add(player1);
@@ -50,6 +59,7 @@ public class DeckTest {
     deck.dealCardsToPlayers(players, 2);
     assertEquals(2, player1.getHand().numberOfCards());
     assertEquals(2, player2.getHand().numberOfCards());
+    assertEquals(48, deck.numberOfCards());
   }
 
   // @Test 

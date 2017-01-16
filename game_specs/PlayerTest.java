@@ -30,11 +30,16 @@ public class PlayerTest {
   }
 
   @Test 
-  public void canDealCardToPlayer() {
-    deck.addCard(card);
-    deck.dealCardToPlayer(player);
-    CardHabitat hand = player.getHand();
-    assertEquals(1, hand.numberOfCards());
+  public void playerHasAce() {
+    player.getHand().addCard(card);
+    assertEquals(true, player.hasAce());
+  }
+
+  @Test 
+  public void playerDoesntHaveAce() {
+    Card nonAceCard = new Card(Suit.CLUBS, Value.THREE);
+    player.getHand().addCard(nonAceCard);
+    assertEquals(false, player.hasAce());
   }
 
   // @Test 

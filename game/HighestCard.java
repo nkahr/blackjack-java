@@ -9,7 +9,7 @@ public class HighestCard extends Game {
   ArrayList<Player> winners;
 
   public HighestCard(ArrayList<Player> players) {
-    this.players = players;    
+    this.players = players;
     winners = new ArrayList<Player>();
   }
 

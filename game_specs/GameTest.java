@@ -70,4 +70,9 @@ public class GameTest {
     assertEquals(player1, game.getWinners().get(0));
   }
 
+  public void canPlayBlackJack() {
+    BlackJack game = new BlackJack();
+    game.play();
+  }
+
 }

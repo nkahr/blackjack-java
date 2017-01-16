@@ -32,4 +32,15 @@ public class Player {
   public void setScore(int score) {
     this.score = score;
   }
+
+  public boolean hasAce() {
+    boolean playerHasAce = false;
+    for (Card card : hand.getCards()) {
+      if (card.getValue().equals(Value.ACE)) {
+        playerHasAce = true;
+      }
+    }
+    return playerHasAce;
+  }
+
 }
