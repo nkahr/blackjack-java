@@ -7,6 +7,5 @@ public class Main {
 
     BlackJack gameTest = new BlackJack();
     gameTest.play();
-    System.out.println("hi");
   }
 }

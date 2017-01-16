@@ -62,10 +62,4 @@ public class DeckTest {
     assertEquals(48, deck.numberOfCards());
   }
 
-  // @Test 
-  // public void cardsInDeckAreFaceDown() {
-  //   assertEquals(Visibility.DOWN, deck.getVisibility());
-  // }
-
-
 }

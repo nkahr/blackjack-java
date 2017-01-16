@@ -1,7 +1,7 @@
-package game;
+// package game;
 
-public enum Visibility {
-  PRIVATE, 
-  UP, 
-  DOWN
-}
+// public enum Visibility {
+//   PRIVATE, 
+//   UP, 
+//   DOWN
+// }

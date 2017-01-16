@@ -4,7 +4,7 @@ import java.util.*;
 public class Deck implements CardHabitat {
 
   ArrayList<Card> cards = new ArrayList<Card>();
-  Visibility visibility = Visibility.DOWN;
+  // Visibility visibility = Visibility.DOWN;
 
   public void addCard(Card card) {
     cards.add(card);
@@ -32,8 +32,8 @@ public class Deck implements CardHabitat {
     }
   }
 
-  public Visibility getVisibility() {
-    return this.visibility;
-  }
+  // public Visibility getVisibility() {
+  //   return this.visibility;
+  // }
 
 }

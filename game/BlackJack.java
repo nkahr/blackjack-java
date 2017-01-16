@@ -76,18 +76,35 @@ public class BlackJack {
 
   public String play() {
     setup();
+    ArrayList<Card> cards;
+    Card card;
     while (winner == null) {
       System.out.println("Do you want to hit or stay?");
       String input = scanner.nextLine();
-      if (input == "hit") {
+      if (input.toLowerCase().contains("hit")) {
         hit(gambler);
+        cards = gambler.getHand().getCards();
+        card = cards.get(cards.size() - 1);
+        Game.addPointsToPlayerScore(players, pointsMap); //update player scores
+        System.out.println("You were dealt the " + card.getValue() + " of " + card.getSuit());
+        System.out.println("Your new score is ");
+        if (gambler.getPlayerScore() > 21) {
+          System.out.println("Dealer wins");
+          winner = dealer;
+        } else if (gambler.getPlayerScore() > 21) {
+          System.out.println("You win with 21");
+        } 
+
       } else if (input == "stay") {
         System.out.println("I don't know?");
       } else {
         System.out.println("Please give a valid input. Note to self: make the program repeat question");
+        continue;
       }
+
       winner = gambler;
     }
+    System.out.println("winner.getName() wins!");
     return "";
   }
 

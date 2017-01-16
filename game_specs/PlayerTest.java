@@ -42,10 +42,5 @@ public class PlayerTest {
     assertEquals(false, player.hasAce());
   }
 
-  // @Test 
-  // public void cardsInHandArePrivate() {
-  //   CardHabitat hand = player.getHand();
-  //   assertEquals(Visibility.PRIVATE, hand.getVisibility());
-  // }
 
 }
